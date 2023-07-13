@@ -1,26 +1,30 @@
 // Write your code here
 import {Component} from 'react'
+
 import './index.css'
 
 class Speedometer extends Component {
   state = {count: 0}
-  onDecrease =  {
-  const {count} = this.state
+
+  onDecrease = () => {
+    const {count} = this.state
+
     if (count > 0) {
       this.setState(prevState => ({count: prevState.count - 10}))
     }
   }
-  onIncrease = ()
-  
-  => {
+
+  onIncrease = () => {
     const {count} = this.state
+
     if (count < 200) {
       this.setState(prevState => ({count: prevState.count + 10}))
     }
   }
-  render() 
-  {
+
+  render() {
     const {count} = this.state
+
     return (
       <div className="container">
         <h1 className="heading">SPEEDOMETER</h1>
@@ -29,16 +33,19 @@ class Speedometer extends Component {
           className="speedometer"
           alt="speedometer"
         />
-        <h1 className="speed">Speed is {count} mph</h1>
-        <p className="speed">Min limit is 0mph,max limit is 200mph</p>
+        <h1 className="speed">Speed is 0mph</h1>
+        <p className="speed">Min Limit is 0mph,Max Limit is 200mph</p>
 
         <div>
+          <button className="accButton" type="button" onClick={this.onIncrease}>
+            Accelerate
+          </button>
           <button
-            className="breakeButton"
+            className="brakeButton"
             type="button"
             onClick={this.onDecrease}
           >
-            Apply Breake
+            Apply Brake
           </button>
         </div>
       </div>
